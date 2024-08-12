@@ -1,0 +1,8 @@
+Hash dump [md5.crypt]
+----------------------------------------------
+Didn't even try to crack it because lap would explode ! just kidding
+---------------------------------------------
+
+
+john:$1$zL4.MR4t$26N4YpTGceBO0gTX6TAky1:14513:0:99999:7:::
+harold:$1$Xx6dZdOd$IMOGACl3r757dv17LZ9010:14513:0:99999:7:::
