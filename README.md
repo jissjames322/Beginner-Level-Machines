@@ -13,3 +13,12 @@ Ongoing Project
 
 I still have a few more machines to complete, and I'll be adding them to this repository as I finish. This is an ongoing project, and I'm excited to continue learning and improving my skills.
 
+Disclaimer
+
+Please note that these machines are for educational purposes only. I do not condone or promote illegal hacking activities.
+
+Acknowledgments
+
+Thanks to Cyber Mentor (TCM) for providing the course materials and machines. I've also appreciated the help from other learners' walkthroughs, which have assisted me in completing these challenges.
+
+
