@@ -312,7 +312,7 @@ smbclient is a command-line tool used to interact with SMB/CIFS (Common Internet
 
 
 let's try :
-```bash
+```
 sudo smbclient -L  \\\\192.168.57.4\\
 
 - L - is for listing all available  shares.  
