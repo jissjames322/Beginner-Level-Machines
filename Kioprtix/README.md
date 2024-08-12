@@ -145,8 +145,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 95.76 seconds
 
 ```
-
- we can see that there is a Apache running on port 80 check it out 
+- mod_ssl
+- Samba
+we can see that there is a Apache running on port 80 check it out on the browser
 
     http://192.168.57.4
 
@@ -156,6 +157,8 @@ It doesn't have  much information on it.
  Let's use nikto
 ```
 nikto is a web vulnerability scanner
+
+it will also show the Directory that can be found in the target machine
 ```
 Scan result :
 
@@ -204,8 +207,165 @@ Scan result :
 + 1 host(s) tested
 
 ```
+**Results**
+```
+ a) - 443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+ b) - 139/tcp   open  netbios-ssn Samba smbd (workgroup: MYGROUP)
 
- 
+ We also found directories 
+ /manual/
+ /usage/
+ /test.php
+
++ /usage/: Webalizer may be installed. Versions lower than 2.01-09 vulnerable to Cross Site Scripting (XSS).
+
++ mod_ssl/2.8.4 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow which may allow a remote shell.
+
++ /: HTTP TRACE method is active which suggests the host is vulnerable to XST.
+  
+ ```
+ Keeping that in the notes !
+
+## Directory Busting
+
+we will use a tool called **dirbuster** [GUI]
+
+- Set **Target** URL :http://192.168.57.4:80
+- Set Threads to  **Go Faster**
+- Browse the **wordlist** file of dirbuster
+- You can also add file extension if you want to search for specific types of file formats
+```
+    /usr/share/wordlists/dirbuster/directory-listsmall.txt
+```
+- Select it and start 
+
+Again you'll get something same as the ones we found using nikto scan
+
+    This is a good way because you can know how the directory is structured
+
+ Now we did find **SMB** 
+    
+## Enumerating SMB
+
+- SMB (Server Message Block) is a network file sharing protocol used primarily for providing shared access to files, printers, and serial ports between nodes on a network. It allows applications and users to read and write to files on remote devices, as well as interact with resources such as printers in a networked environment.
+- We have to find the exact version they are using .If they are using an older version there is chance for us to exploit it and older versions have some kind of vulnerabilities
+
+We can use **Metasploit** for detecting / scanning the **SMB** version of the target system by using modules
+
+## Metasploit
+
+**Metasploit** is an open-source penetration testing framework developed by Rapid7. It is used by cybersecurity professionals, ethical hackers, and security researchers to identify, test, and exploit vulnerabilities in systems and networks.
+
+We can use the auxiliary module which is mostly used for scanning , information gathering 
+
+if you have no idea how to find it :) Look Down 👇
+
+**Running Metasploit**
+
+Type
+```
+msfconsole
+```
+Search for **SMB**
+```
+msf5 > search smb
+```
+you'll find this one
+```
+auxiliary/scanner/smb/smb_version
+```
+use it 
+```
+msf5 > use auxiliary/scanner/smb/smb_version 
+
+```
+You can view the options by typing **"options"**
+
+```
+msf5 auxiliary(scanner/smb/smb_version) > options
+```
+
+Since we don't have any other info about the smb credentials(Domain,User,pass) we can set the rhosts 
+
+
+```
+msf5 auxiliary(scanner/smb/smb_version) > set RHOSTS 192.168.57.4
+
+```
+Now we can run it.
+
+```
+msf5 auxiliary(scanner/smb/smb_version) > run
+```
+
+**Result**
+```
+Samba 2.2.1a
+```
+
+We can search for exploits on this version
+
+## Trying to connect to file share
+
+We'll use a tool called **smbclient**
+smbclient is a command-line tool used to interact with SMB/CIFS (Common Internet File System) shares on remote servers. It allows users to connect to SMB shares, browse directories, transfer files, and execute commands on the remote server.
+
+
+let's try :
+```bash
+sudo smbclient -L  \\\\192.168.57.4\\
+
+- L - is for listing all available  shares.  
+
+- Target - Ip Address of Kioptrix
+```
+
+Ok can go and try to connect the file share
+
+```
+sudo smbclient \\\\192.168.57.4\\ADMIN$
+
+Access denied
+
+```
+Again Nothing
+
+## Enumerating SSH
+
+SSH (Secure Shell) is a protocol used to securely connect to remote systems over a network. It provides encrypted communication, allowing users to log into another computer, execute commands, and transfer files securely. Commonly used for managing servers and remote machines, SSH ensures that data exchanged between the client and server is protected from eavesdropping.
+
+
+Let's try connect to ssh :
+
+```
+sudo ssh 192.168.57.4 
+
+```
+well we can't connect because of algortihm not  found error 
+
+honestly saying i dont't have any idea what this is but i have tired as the instructor would Trying
+```
+$ ssh 192.168.57.4 -oKexAlgorithms=+diffle-hellman-group1-sha1 -c aes128-cbc
+
+```
+Now this didn't actually work for me so i searched for some other way and found this and it worked !
+``` 
+https://github.com/amtzespinosa/kioptrix1-walkthrough
+
+
+``` 
+```
+sudo ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-dss -oPubkeyAcceptedAlgorithms=+ssh-rsa -c aes128-cbc 192.168.57.4
+
+```
+
+Now we can connect to ssh but we dont know the password so it's of no use.
+
+
+
+
+
+
 
 
 
