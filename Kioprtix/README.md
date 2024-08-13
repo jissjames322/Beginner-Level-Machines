@@ -9,9 +9,9 @@
 
 - You can find this Box in [**here**](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/) or you can find in the resources on the youtube video description
 
-``` 
 
-```
+
+
 - The Main Objective is to achieve root access to this machine.
 
 
@@ -19,12 +19,12 @@
 
 ## Setup
 
-- I have installed virtual box from here 
+- I have installed virtual box from [**here**](https://www.virtualbox.org/wiki/Downloads)
 
-```
-https://www.virtualbox.org/wiki/Downloads
 
-```
+
+
+
 
     Run virtual box
     File > Import Appliance > Browse > Select the (Kioptrix.ova)
@@ -459,9 +459,11 @@ Run
 
 **And we'll get a shell!**
 
-Learned so many things doing this.yeah even though it's an easy machine i felt kind of diffcult trying to do it by myself so i did pause and saw how heath is doing in his videos and also some other peoples writeups helped me to get more knowledge about what is 
+Learned so many things doing this.yeah even though it's an easy machine i felt kind of diffcult trying to do it by myself so i did pause and saw how heath is doing in his videos and also some other peoples writeups helped me to get more knowledge about what all the thing's im doing
 
-I didn't take screen shots while doing this thing .I'll be putting screenshots for other machines📷
+I didn't take screen shots while doing this thing .
+
+I'll be putting screenshots for other machines📷
 
 
 **Have fun guys! and yeah i like coffee too ☕** 
