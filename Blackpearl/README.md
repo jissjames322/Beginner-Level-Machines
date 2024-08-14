@@ -384,7 +384,7 @@ Okay now we are in  but we are just on the **www-data** and we have to do **priv
 
 Now we need to get a shell but how ?
 
-You can check if they have python installed if thet have then we can generate a tty shell using a one liner code found online
+You can check if they have python installed if they have it then we can generate a tty shell using a one liner code found online
 
 check by typing :
 
