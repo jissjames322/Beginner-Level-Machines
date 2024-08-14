@@ -337,6 +337,9 @@ Now while searching in Google, searchploit & Rapid7 we found
 
 **Navigate CMS -(Unauthenticated) Remote Code Execution**
 
+
+## Exploitation 
+
 We will search for it in **Metasploit**
 
 Start Metasploit :
