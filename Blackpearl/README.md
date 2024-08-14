@@ -414,7 +414,7 @@ This is for doing linux privilege escalation and if you were to go for windows p
 ```
 
 We can try to send the **linpeas.sh**
-First git clone the **"linpeas.sh"** script or  (Find the latest version) from [**here**]https://github.com/peass-ng/PEASS-ng/releases/tag/20240811-aea595a1 Download it manually :)
+First git clone the **"linpeas.sh"** script or  (Find the latest version) from [**here**](https://github.com/peass-ng/PEASS-ng/releases/tag/20240811-aea595a1) Download it manually :)
 
 After downloading move the linpeas.sh file to your folder where you want to host it 
 
