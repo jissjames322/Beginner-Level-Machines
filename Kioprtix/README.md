@@ -1,5 +1,5 @@
 ![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/e7e9c4967eb5c9b6dc352312852ec180588afb17/Kioprtix/images/logo.png)
-# Kioptrix
+# Kioptrix - Level 1
  Beginner Level Box For Pentest - Kioptrix Level 1
  
  This is my first box !
