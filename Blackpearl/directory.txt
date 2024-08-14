@@ -1,0 +1,39 @@
+ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ  -u http://192.168.57.6/FUZZ
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://192.168.57.6/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+                        [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 62ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 60ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 63ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 84ms]
+# Copyright 2007 James Fisher [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 84ms]
+# directory-list-2.3-medium.txt [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 84ms]
+# or send a letter to Creative Commons, 171 Second Street,  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# This work is licensed under the Creative Commons  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# Attribution-Share Alike 3.0 License. To view a copy of this  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# license, visit http://creativecommons.org/licenses/by-sa/3.0/  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 85ms]
+# Suite 300, San Francisco, California, 94105, USA. [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 86ms]
+#                       [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 87ms]
+# Priority ordered case sensative list, where entries were found  [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 88ms]
+# on atleast 2 different hosts [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 88ms]
+secret                  [Status: 200, Size: 209, Words: 31, Lines: 9, Duration: 84ms]
+                        [Status: 200, Size: 652, Words: 82, Lines: 27, Duration: 54ms]
+:: Progress: [220560/220560] :: Job [1/1] :: 281 req/sec :: Duration: [0:08:22] :: Errors: 0 ::

