@@ -323,7 +323,7 @@ sudo smbclient -L  \\\\192.***.***.**\\
 Ok can go and try to connect the file share
 
 ```
-sudo smbclient \\\\192.168.57.4\\ADMIN$
+sudo smbclient \\\\192.***.**.*\\ADMIN$
 
 Access denied
 
