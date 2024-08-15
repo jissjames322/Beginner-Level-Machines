@@ -1,4 +1,4 @@
- ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ  -u http://192.168.57.6/FUZZ
+ ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ  -u http://192.***.***.**/FUZZ
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -11,7 +11,7 @@
 ________________________________________________
 
  :: Method           : GET
- :: URL              : http://192.168.57.6/FUZZ
+ :: URL              : http://192.***.***.**/FUZZ
  :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
  :: Follow redirects : false
  :: Calibration      : false
