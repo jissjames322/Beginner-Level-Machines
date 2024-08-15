@@ -48,10 +48,10 @@ Discovered open port 22/tcp on
 SYN Stealth Scan Timing: About 44.54% done; ETC: 05:26 (0:00:39 remaining)
 Completed SYN Stealth Scan at 05:26, 68.13s elapsed (65535 total ports)
 Initiating Service scan at 05:26
-Scanning 3 services on 192.168.57.6
+Scanning 3 services on 
 Completed Service scan at 05:26, 6.07s elapsed (3 services on 1 host)
 Initiating OS detection (try #1) against 192.168.57.6
-NSE: Script scanning 192.168.57.6.
+NSE: Script scanning 
 Initiating NSE at 05:26
 Completed NSE at 05:27, 8.38s elapsed
 Initiating NSE at 05:27
