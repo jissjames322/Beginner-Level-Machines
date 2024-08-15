@@ -1,4 +1,4 @@
-nmap -p- -A -T4 -O -v 192.168.57.6 
+nmap -p- -A -T4 -O -v 192.***.***.*** 
 
 
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-12 05:25 UTC
@@ -11,15 +11,15 @@ Completed NSE at 05:25, 0.00s elapsed
 Initiating NSE at 05:25
 Completed NSE at 05:25, 0.00s elapsed
 Initiating ARP Ping Scan at 05:25
-Scanning 192.168.57.6 [1 port]
+Scanning  [1 port]
 Completed ARP Ping Scan at 05:25, 0.14s elapsed (1 total hosts)
 Initiating Parallel DNS resolution of 1 host. at 05:25
 Completed Parallel DNS resolution of 1 host. at 05:25, 13.00s elapsed
 Initiating SYN Stealth Scan at 05:25
 Scanning 192.168.57.6 [65535 ports]
-Discovered open port 80/tcp on 192.168.57.6
-Discovered open port 53/tcp on 192.168.57.6
-Discovered open port 22/tcp on 192.168.57.6
+Discovered open port 80/tcp on 
+Discovered open port 53/tcp on 
+Discovered open port 22/tcp on 
 SYN Stealth Scan Timing: About 44.54% done; ETC: 05:26 (0:00:39 remaining)
 Completed SYN Stealth Scan at 05:26, 68.13s elapsed (65535 total ports)
 Initiating Service scan at 05:26
@@ -63,7 +63,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 TRACEROUTE
 HOP RTT     ADDRESS
-1   5.88 ms 192.168.57.6
+1   5.88 ms 
 
 NSE: Script Post-scanning.
 Initiating NSE at 05:27
@@ -82,9 +82,9 @@ Nmap done: 1 IP address (1 host up) scanned in 98.52 seconds
 -----------------------------------------------------------------------------------------------------------------------
 
 
-sudo  nmap -sV -T4 192.168.57.6               
+sudo  nmap -sV -T4 192.***.***.**
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-12 05:36 UTC
-Nmap scan report for 192.168.57.6
+Nmap scan report for 
 Host is up (0.00080s latency).
 Not shown: 997 closed tcp ports (reset)
 PORT   STATE SERVICE VERSION
