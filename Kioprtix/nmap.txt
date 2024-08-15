@@ -1,5 +1,5 @@
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-11 07:09 UTC
-Nmap scan report for 192.168.57.4
+Nmap scan report for 
 Host is up (0.0079s latency).
 Not shown: 65529 closed tcp ports (conn-refused)
 PORT      STATE SERVICE     VERSION
