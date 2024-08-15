@@ -1,0 +1,89 @@
+──(kali㉿kali)-[~/Desktop/academy]
+└─$ ftp 192.168.57.7
+Connected to 192.168.57.7.
+220 (vsFTPd 3.0.3)
+Name (192.168.57.7:kali): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+229 Entering Extended Passive Mode (|||60850|)
+150 Here comes the directory listing.
+-rw-r--r--    1 1000     1000          776 May 30  2021 note.txt
+226 Directory send OK.
+ftp> cat note.txt
+?Invalid command.
+ftp> help
+Commands may be abbreviated.  Commands are:
+
+!               delete          hash            mlsd            pdir            remopts         struct
+$               dir             help            mlst            pls             rename          sunique
+account         disconnect      idle            mode            pmlsd           reset           system
+append          edit            image           modtime         preserve        restart         tenex
+ascii           epsv            lcd             more            progress        rhelp           throttle
+bell            epsv4           less            mput            prompt          rmdir           trace
+binary          epsv6           lpage           mreget          proxy           rstatus         type
+bye             exit            lpwd            msend           put             runique         umask
+case            features        ls              newer           pwd             send            unset
+cd              fget            macdef          nlist           quit            sendport        usage
+cdup            form            mdelete         nmap            quote           set             user
+chmod           ftp             mdir            ntrans          rate            site            verbose
+close           gate            mget            open            rcvbuf          size            xferbuf
+cr              get             mkdir           page            recv            sndbuf          ?
+debug           glob            mls             passive         reget           status
+ftp> fget note.txt
+Can't open source file note.txt
+ftp> get note.txt
+local: note.txt remote: note.txt
+229 Entering Extended Passive Mode (|||50715|)
+150 Opening BINARY mode data connection for note.txt (776 bytes).
+100% |*******************************************************************************|   776       36.03 KiB/s    00:00 ETA
+226 Transfer complete.
+776 bytes received in 00:00 (24.60 KiB/s)
+ftp> ls
+229 Entering Extended Passive Mode (|||10968|)
+150 Here comes the directory listing.
+-rw-r--r--    1 1000     1000          776 May 30  2021 note.txt
+226 Directory send OK.
+ftp> cd ..
+250 Directory successfully changed.
+ftp> ls
+229 Entering Extended Passive Mode (|||33862|)
+150 Here comes the directory listing.
+-rw-r--r--    1 1000     1000          776 May 30  2021 note.txt
+226 Directory send OK.
+ftp> cd ..
+250 Directory successfully changed.
+ftp> ls
+229 Entering Extended Passive Mode (|||50211|)
+150 Here comes the directory listing.
+-rw-r--r--    1 1000     1000          776 May 30  2021 note.txt
+226 Directory send OK.
+ftp> exit
+221 Goodbye.
+                                                                                                                            
+┌──(kali㉿kali)-[~/Desktop/academy]
+└─$ ls
+nmap.txt  note.txt
+                                                                                                                            
+┌──(kali㉿kali)-[~/Desktop/academy]
+└─$ cat note.txt
+Hello Heath !
+Grimmie has setup the test website for the new academy.
+I told him not to use the same password everywhere, he will change it ASAP.
+
+
+I couldn't create a user via the admin panel, so instead I inserted directly into the database with the following command:
+
+INSERT INTO `students` (`StudentRegno`, `studentPhoto`, `password`, `studentName`, `pincode`, `session`, `department`, `semester`, `cgpa`, `creationdate`, `updationDate`) VALUES
+('10201321', '', 'cd73502828457d15655bbd7a63fb0bc8', 'Rum Ham', '777777', '', '', '', '7.60', '2021-05-29 14:36:56', '');
+
+The StudentRegno number is what you use for login.
+
+
+Le me know what you think of this open-source project, it's from 2020 so it should be secure... right ?
+We can always adapt it to our needs.
+
+-jdelta
