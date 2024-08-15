@@ -6,6 +6,9 @@ This repository contains write-ups and solutions for the machines I've completed
 ```
 - Kioptrix Level 1
 - Blackpearl
+- Blue
+- Dev
+- Acadmey
 ```
 These machines are from a 1-year-old video series, but they still provide valuable learning experiences. I've completed some of these machines by following along with the instructor, and others I've attempted on my own. I've also referenced walkthroughs from other learners to help me overcome challenges.
 
