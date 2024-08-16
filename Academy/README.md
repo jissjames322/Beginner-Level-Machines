@@ -845,7 +845,9 @@ chmod +x pspy64
 ![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/backup.png)
 
 Now we see that  `backup.sh` is running by the root user it's a good thing !
-
+```
+UID = 0  (Means root)
+```
 ## Getting Root !
 
 
