@@ -709,7 +709,7 @@ $ nc -nvlp 1234
 ```
 ![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/listening.png)
 
-Now go to the **Student Registeration** & **Upload image** 
+Now go to the **Student Registeration** & **Upload the shell.php as image** 
 
 
 ![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/ef2a1d1f4ec504a1ffa12207eb4df8c8fd600a31/Academy/images/upload.png)
