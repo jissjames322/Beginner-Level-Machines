@@ -12,7 +12,7 @@ This repository contains write-ups and solutions for the machines I've completed
 - Acadmey
 - Butler
 ```
-The `Butler` Machine caused  so much lag in my  `Virtual Box` because i am using a low end device and it was a `Windows 10` based machine which atleast needs upto 4GB of Ram Allocated to it even with 2GB I had some problems of CPU Heating.I think i should just do HTB Machines so you dont have to worry about any other things.   
+The `Butler` Machine caused  so much lag in my  `Virtual Box` because i am using a low end device and it was a `Windows 10` based machine which atleast needs upto 4GB of Ram Allocated to it even with 2GB I had some problems of CPU Heating.I think i should just do HTB Machines so you  don't have to worry about any other things. 🤓  
 
 These machines are from a 1-year-old video series, but they still provide valuable learning experiences. I've completed some of these machines by following along with the instructor, and others I've attempted on my own. I've also referenced walkthroughs from other learners to help me overcome challenges.
 
