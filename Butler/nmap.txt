@@ -1,0 +1,103 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-16 07:16 UTC
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 07:16
+Completed NSE at 07:16, 0.00s elapsed
+Initiating NSE at 07:16
+Completed NSE at 07:16, 0.00s elapsed
+Initiating NSE at 07:16
+Completed NSE at 07:16, 0.00s elapsed
+Initiating ARP Ping Scan at 07:16
+Scanning 192.168.57.10 [1 port]
+Completed ARP Ping Scan at 07:16, 0.09s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 07:16
+Completed Parallel DNS resolution of 1 host. at 07:16, 13.01s elapsed
+Initiating SYN Stealth Scan at 07:16
+Scanning 192.168.57.10 [65535 ports]
+Discovered open port 445/tcp on 192.168.57.10
+Discovered open port 139/tcp on 192.168.57.10
+Discovered open port 8080/tcp on 192.168.57.10
+Discovered open port 135/tcp on 192.168.57.10
+Discovered open port 49666/tcp on 192.168.57.10
+SYN Stealth Scan Timing: About 31.92% done; ETC: 07:18 (0:01:06 remaining)
+Discovered open port 5040/tcp on 192.168.57.10
+Discovered open port 49665/tcp on 192.168.57.10
+Discovered open port 49667/tcp on 192.168.57.10
+Discovered open port 49664/tcp on 192.168.57.10
+Discovered open port 7680/tcp on 192.168.57.10
+Discovered open port 63108/tcp on 192.168.57.10
+SYN Stealth Scan Timing: About 64.24% done; ETC: 07:18 (0:00:34 remaining)
+Discovered open port 49668/tcp on 192.168.57.10
+Completed SYN Stealth Scan at 07:18, 92.73s elapsed (65535 total ports)
+Initiating Service scan at 07:18
+Scanning 12 services on 192.168.57.10
+Service scan Timing: About 50.00% done; ETC: 07:19 (0:00:53 remaining)
+Completed Service scan at 07:20, 156.43s elapsed (12 services on 1 host)
+Initiating OS detection (try #1) against 192.168.57.10
+NSE: Script scanning 192.168.57.10.
+Initiating NSE at 07:20
+Completed NSE at 07:20, 15.01s elapsed
+Initiating NSE at 07:20
+Completed NSE at 07:20, 1.07s elapsed
+Initiating NSE at 07:20
+Completed NSE at 07:20, 0.01s elapsed
+Nmap scan report for 192.168.57.10
+Host is up (0.0023s latency).
+Not shown: 65523 closed tcp ports (reset)
+PORT      STATE SERVICE       VERSION
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+5040/tcp  open  unknown
+7680/tcp  open  tcpwrapped
+8080/tcp  open  http          Jetty 9.4.41.v20210516
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+|_http-favicon: Unknown favicon MD5: 23E8C7BD78E8CD826C5A6073B15068B1
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Jetty(9.4.41.v20210516)
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+63108/tcp open  msrpc         Microsoft Windows RPC
+MAC Address: 08:00:27:84:1E:90 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Microsoft Windows 10
+OS CPE: cpe:/o:microsoft:windows_10
+OS details: Microsoft Windows 10 1709 - 1909
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=264 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| nbstat: NetBIOS name: BUTLER, NetBIOS user: <unknown>, NetBIOS MAC: 08:00:27:84:1e:90 (Oracle VirtualBox virtual NIC)
+| Names:
+|   WORKGROUP<00>        Flags: <group><active>
+|   BUTLER<00>           Flags: <unique><active>
+|_  BUTLER<20>           Flags: <unique><active>
+| smb2-time: 
+|   date: 2024-08-16T19:50:46
+|_  start_date: N/A
+|_clock-skew: 12h30m02s
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   2.30 ms 192.168.57.10
+
+NSE: Script Post-scanning.
+Initiating NSE at 07:20
+Completed NSE at 07:20, 0.00s elapsed
+Initiating NSE at 07:20
+Completed NSE at 07:20, 0.00s elapsed
+Initiating NSE at 07:20
+Completed NSE at 07:20, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 280.72 seconds
+           Raw packets sent: 65908 (2.901MB) | Rcvd: 65572 (2.624MB)
