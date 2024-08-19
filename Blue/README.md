@@ -125,7 +125,7 @@ $ msf5 exploit(windows/smb/ms17 010 eternalblue) > run
 ![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/49ded029b6c2f3238d85e40ace2076e37c81776b/Blue/images/screenshot.png)
 
 
-![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/49ded029b6c2f3238d85e40ace2076e37c81776b/Blue/images/Blue.png)
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/49ded029b6c2f3238d85e40ace2076e37c81776b/Blue/images/Blue.jpeg)
 
 - Getting `shell` :
 
