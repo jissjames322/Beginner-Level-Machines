@@ -42,7 +42,7 @@ Now after searching for this in google i found `eternal blue exploit` from [**Ra
 
 And this is how you can use it :
 
-![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/49ded029b6c2f3238d85e40ace2076e37c81776b/Blue/images/ms17-010.png)
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/49ded029b6c2f3238d85e40ace2076e37c81776b/Blue/images/msexploit.png)
 
 You can check for `eternalblue` exploits using tools like **Searchsploit**
 
@@ -155,7 +155,9 @@ net user [username][password]
 ![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/49ded029b6c2f3238d85e40ace2076e37c81776b/Blue/images/utilman.png)
 
 
-
+```
+5 Down 1 to go
+```
 
 
 
