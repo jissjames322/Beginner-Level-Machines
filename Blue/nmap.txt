@@ -1,0 +1,110 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-08-14 06:55 UTC
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 06:55
+Stats: 0:00:00 elapsed; 0 hosts completed (0 up), 0 undergoing Script Pre-Scan
+NSE: Active NSE Script Threads: 1 (0 waiting)
+NSE Timing: About 0.00% done
+Completed NSE at 06:55, 0.00s elapsed
+Initiating NSE at 06:55
+Completed NSE at 06:55, 0.00s elapsed
+Initiating NSE at 06:55
+Completed NSE at 06:55, 0.00s elapsed
+Initiating ARP Ping Scan at 06:55
+Scanning 192.168.57.9 [1 port]
+Completed ARP Ping Scan at 06:55, 0.10s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 06:55
+Completed Parallel DNS resolution of 1 host. at 06:55, 13.01s elapsed
+Initiating SYN Stealth Scan at 06:55
+Scanning 192.168.57.9 [65535 ports]
+Discovered open port 135/tcp on 192.168.57.9
+Discovered open port 139/tcp on 192.168.57.9
+Discovered open port 445/tcp on 192.168.57.9
+Discovered open port 49157/tcp on 192.168.57.9
+SYN Stealth Scan Timing: About 39.77% done; ETC: 06:57 (0:00:47 remaining)
+Discovered open port 49152/tcp on 192.168.57.9
+Discovered open port 49155/tcp on 192.168.57.9
+Discovered open port 49156/tcp on 192.168.57.9
+Discovered open port 49153/tcp on 192.168.57.9
+Discovered open port 49154/tcp on 192.168.57.9
+Completed SYN Stealth Scan at 06:57, 76.71s elapsed (65535 total ports)
+Initiating Service scan at 06:57
+Scanning 9 services on 192.168.57.9
+Service scan Timing: About 44.44% done; ETC: 06:59 (0:01:06 remaining)
+Completed Service scan at 06:58, 58.84s elapsed (9 services on 1 host)
+Initiating OS detection (try #1) against 192.168.57.9
+NSE: Script scanning 192.168.57.9.
+Initiating NSE at 06:58
+Completed NSE at 06:58, 6.04s elapsed
+Initiating NSE at 06:58
+Completed NSE at 06:58, 0.01s elapsed
+Initiating NSE at 06:58
+Completed NSE at 06:58, 0.01s elapsed
+Nmap scan report for 192.168.57.9
+Host is up (0.0040s latency).
+Not shown: 65526 closed tcp ports (reset)
+PORT      STATE SERVICE      VERSION
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds Windows 7 Ultimate 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+49152/tcp open  msrpc        Microsoft Windows RPC
+49153/tcp open  msrpc        Microsoft Windows RPC
+49154/tcp open  msrpc        Microsoft Windows RPC
+49155/tcp open  msrpc        Microsoft Windows RPC
+49156/tcp open  msrpc        Microsoft Windows RPC
+49157/tcp open  msrpc        Microsoft Windows RPC
+MAC Address: 08:00:27:2A:95:91 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Microsoft Windows 7|2008|8.1
+OS CPE: cpe:/o:microsoft:windows_7::- cpe:/o:microsoft:windows_7::sp1 cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_8 cpe:/o:microsoft:windows_8.1
+OS details: Microsoft Windows 7 SP0 - SP1, Windows Server 2008 SP1, Windows Server 2008 R2, Windows 8, or Windows 8.1 Update 1
+Uptime guess: 0.006 days (since Wed Aug 14 06:49:34 2024)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: WIN-845Q99OO4PP; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 10h49m50s, deviation: 2h18m33s, median: 9h29m50s
+| smb2-security-mode: 
+|   2:1:0: 
+|_    Message signing enabled but not required
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| nbstat: NetBIOS name: WIN-845Q99OO4PP, NetBIOS user: <unknown>, NetBIOS MAC: 08:00:27:2a:95:91 (Oracle VirtualBox virtual NIC)
+| Names:
+|   WIN-845Q99OO4PP<00>  Flags: <unique><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|   WIN-845Q99OO4PP<20>  Flags: <unique><active>
+|   WORKGROUP<1e>        Flags: <group><active>
+|   WORKGROUP<1d>        Flags: <unique><active>
+|_  \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+| smb-os-discovery: 
+|   OS: Windows 7 Ultimate 7601 Service Pack 1 (Windows 7 Ultimate 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1
+|   Computer name: WIN-845Q99OO4PP
+|   NetBIOS computer name: WIN-845Q99OO4PP\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2024-08-14T12:28:04-04:00
+| smb2-time: 
+|   date: 2024-08-14T16:28:04
+|_  start_date: 2024-08-14T16:20:34
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   3.97 ms 192.168.57.9
+
+NSE: Script Post-scanning.
+Initiating NSE at 06:58
+Completed NSE at 06:58, 0.00s elapsed
+Initiating NSE at 06:58
+Completed NSE at 06:58, 0.00s elapsed
+Initiating NSE at 06:58
+Completed NSE at 06:58, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 157.04 seconds
+           Raw packets sent: 65588 (2.887MB) | Rcvd: 65552 (2.623MB)
