@@ -64,7 +64,7 @@ Here's a step-by-step breakdown of the exploit:
 5. Payload Delivery: The shellcode delivers a payload, such as malware or a backdoor, to the compromised machine.
 6. Propagation: The malware can spread to other vulnerable machines on the network via SMB, creating a worm-like effect.
 ```
-This is a manual way of exploiting this box using this [**Tool**](www.github.com/3ndG4me/AutoBlue-MS17-010).
+This is a manual way of exploiting this box using this [**Tool**](https://github.com/3ndG4me/AutoBlue-MS17-010).
 
 But let's check if it's acutally vulnerable or not.
 
