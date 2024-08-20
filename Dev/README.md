@@ -367,7 +367,7 @@ You'll be asked to enter a `passphrase` for key `'id_rsa'`
 
 Now remember the `config.yml` file we found a password in that file `i_love_java`
 
-![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/b392e7ab1a2b7c1c5fc543d565f9a1eceb708cf4/Dev/images/loginwithssg.png)
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/b392e7ab1a2b7c1c5fc543d565f9a1eceb708cf4/Dev/images/loginwithssh.png)
 
 And we are in !
 
