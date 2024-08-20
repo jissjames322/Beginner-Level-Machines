@@ -1,0 +1,39 @@
+ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt:FUZZ -u http://192.168.57.8:8080/FUZZ
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://192.168.57.8:8080/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+# directory-list-2.3-small.txt [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 44ms]
+#                       [Status: 200, Size: 94603, Words: 4689, Lines: 1160, Duration: 17ms]
+# Suite 300, San Francisco, California, 94105, USA. [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 154ms]
+# Priority ordered case sensative list, where entries were found  [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 169ms]
+# on atleast 3 different hosts [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 102ms]
+#                       [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 187ms]
+                        [Status: 200, Size: 94603, Words: 4689, Lines: 1160, Duration: 124ms]
+# or send a letter to Creative Commons, 171 Second Street,  [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 159ms]
+# Attribution-Share Alike 3.0 License. To view a copy of this  [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 1399ms]
+# license, visit http://creativecommons.org/licenses/by-sa/3.0/  [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 1359ms]
+dev                     [Status: 301, Size: 317, Words: 20, Lines: 10, Duration: 42ms]
+# Copyright 2007 James Fisher [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 1942ms]
+#                       [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 1974ms]
+#                       [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 1927ms]
+# This work is licensed under the Creative Commons  [Status: 200, Size: 94604, Words: 4689, Lines: 1160, Duration: 1983ms]
+                        [Status: 200, Size: 94609, Words: 4689, Lines: 1160, Duration: 66ms]
+:: Progress: [87664/87664] :: Job [1/1] :: 722 req/sec :: Duration: [0:02:01] :: Errors: 0 ::
